@@ -2,6 +2,7 @@
 A lightweight Python toolkit with CLI utilities and pytest helpers for common QA tasks and automation.
 
 ## Features
+- Reusable utility functions
 - CLI test case generator for boundary testing
 - Custom assertion and data validators
 - Pytest test suite
