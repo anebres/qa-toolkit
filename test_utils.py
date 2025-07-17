@@ -1,10 +1,14 @@
 # Reusable utility functions
 
-def assert_equal(expected, actual):
-    if expected == actual:
-        return "PASS"
-    else:
-        return f"FAIL: Expected {expected}, got {actual}"
+# def assert_equal(expected, actual):
+#     if expected == actual:
+#         return "PASS"
+#     else:
+#         return f"FAIL: Expected {expected}, got {actual}"
+
+def assert_equal(expected, actual, message=None):
+    if expected != actual:
+        raise AssertionError(message or f"Expected {expected}, got {actual}")
 
 def has_duplicates(items):
     return len(items) != len(set(items))
@@ -17,7 +21,8 @@ def find_empty_fields(data):
 
 def is_valid_email(email):
     import re
-    return bool(re.match(r"[^@]+@[^@]+\.[^@]+", email))
+    return bool(re.match(r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$", email))
+    # return bool(re.match(r"[^@]+@[^@]+\.[^@]+", email))
 
 def is_field_empty(value):
     return not value or not value.strip()
