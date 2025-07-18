@@ -63,3 +63,8 @@ def generate_test_strings(min_length, max_length, required=True):
         invalid.append("x" * (min_length - 1))
     invalid.append("z" * (max_length + 1))
     return {"valid": valid, "invalid": invalid}
+
+def read_users_from_csv(file_path):
+    import csv
+    with open(file_path, newline='') as csvfile:
+        return list(csv.DictReader(csvfile))
